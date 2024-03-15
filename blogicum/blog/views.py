@@ -89,7 +89,7 @@ def category_posts(request, category_slug):
         category_slug: Уникальный идентификатор категории.
 
     Returns:
-        HTTP-ответ с отображением постов определенной 
+        HTTP-ответ с отображением постов определенной
         категории блога.
     """
     return render(request, template_name='blog/category.html',
