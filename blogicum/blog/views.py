@@ -48,6 +48,7 @@ posts: list = [
 # Создаем словарь из списка постов
 posts_dict = {post['id']: post for post in posts}
 
+
 def index(request):
     """
     Отображает главную страницу блога.
@@ -59,6 +60,7 @@ def index(request):
         HTTP-ответ с отображением главной страницы блога и списком постов.
     """
     return render(request, 'blog/index.html', {'posts': posts})
+
 
 def post_detail(request, id):
     """
@@ -87,6 +89,9 @@ def category_posts(request, category_slug):
         category_slug: Уникальный идентификатор категории.
 
     Returns:
-        HTTP-ответ с отображением постов определенной категории блога.
+        HTTP-ответ с отображением постов определенной 
+        категории блога.
     """
-    return render(request, template_name='blog/category.html', context={'category_slug': category_slug})
+    return render(request, template_name='blog/category.html',
+                  context={'category_slug': category_slug}
+                  )
