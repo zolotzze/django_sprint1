@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 html/
+blogicum/static/
 db.sqlite3
 
 # C extensions
