@@ -46,7 +46,7 @@ posts: list = [
 ]
 
 # Создаем словарь из списка постов
-POSTS_DICT = {post['id']: post for post in posts}
+POSTS_DICTIONARY = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -59,7 +59,9 @@ def index(request):
     Returns:
         HTTP-ответ с отображением главной страницы блога и списком постов.
     """
-    return render(request, 'blog/index.html', {'posts': posts})
+    context = {'posts': posts}
+
+    return render(request, 'blog/index.html', context)
 
 
 def post_detail(request, post_id):
@@ -73,7 +75,7 @@ def post_detail(request, post_id):
     Returns:
         HTTP-ответ с отображением деталей конкретного поста блога.
     """
-    post = POSTS_DICT.get(post_id)
+    post = POSTS_DICTIONARY.get(post_id)
 
     if post is None:
         raise Http404(f'Пост под номером {post_id} не существует')
