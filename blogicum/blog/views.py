@@ -59,8 +59,8 @@ def index(request):
     Returns:
         HTTP-ответ с отображением главной страницы блога и списком постов.
     """
-    context = {'posts': posts}
-
+    context = {'posts': posts[::-1]}
+    
     return render(request, 'blog/index.html', context)
 
 
