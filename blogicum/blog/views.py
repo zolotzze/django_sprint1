@@ -46,7 +46,7 @@ posts: list = [
 ]
 
 # Создаем словарь из списка постов
-POSTS_DICTIONARY = {post['id']: post for post in posts}
+POSTS = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -75,7 +75,7 @@ def post_detail(request, post_id):
     Returns:
         HTTP-ответ с отображением деталей конкретного поста блога.
     """
-    post = POSTS_DICTIONARY.get(post_id)
+    post = POSTS.get(post_id)
 
     if post is None:
         raise Http404(f'Пост под номером {post_id} не существует')
